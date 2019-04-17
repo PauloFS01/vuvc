@@ -3,7 +3,9 @@
         <!--desktop begin-->
         <div id="desktop-nav">
             <div class="header-div">
-                <div><i @click="navToggle" class="fas fa-arrow-circle-right"></i> <span v-if="toggle">{{ headerTitle }}</span>  </div>
+                <div><i v-if="!toggle" @click="navToggle" class="fas fa-arrow-right"></i> 
+                <i v-if="toggle" @click="navToggle" class="fas fa-arrow-left"></i>
+                <span v-if="toggle">{{ headerTitle }}</span>  </div>
             </div>            
             <div class="body-div">
                 <div class="elements-div">

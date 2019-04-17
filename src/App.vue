@@ -2,7 +2,7 @@
   <div id="app" >
     <vu-menu  />
     <div id="my-body">
-      <vu-header />
+      <vu-header @toggleClick="log"/>
       <router-view/> 
     <footer>
       footer
@@ -22,6 +22,11 @@ export default {
   },
   computed: {
     ...searchGetters
+  },
+  methods: {
+    log () {
+      alert('you click in toggle')
+    }
   }
 }
 </script>
@@ -33,10 +38,15 @@ body {
 }
 #my-body {  
   border: solid red 1px;
-  width: 94.5%;
+  width:94.4%;
   float: right;
 }
 footer {
   border: solid red 1px;
+}
+@media only screen and (max-width: 900px) {
+  #my-body {
+    width:100%;
+  }
 }
 </style>
