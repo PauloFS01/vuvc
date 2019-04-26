@@ -100,12 +100,14 @@ export default {
         configLink: {
             type: String,
             default: '/#'
+        }, 
+        toggle: {
+            type: Boolean            
         }
     },
     data () {
         return {
-            toggle: false,
-            modalToggle: true,
+            modalToggle: false,
             mobileToggle: false,
             notificationToggle: false,
             searchValue: ''
@@ -122,7 +124,6 @@ export default {
         },
         // will send toggle click to parent
         toggleClick () {
-            this.toggle = !this.toggle
             this.$emit('toggleClick')
         }
     }

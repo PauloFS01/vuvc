@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar-div" :class="hidenNav" >
+    <div class="navbar-div">
         <!--desktop begin-->
         <div id="desktop-nav">
             <div class="header-div">
@@ -121,15 +121,10 @@ export default {
         headerTitle: {
             type: String,
             default: 'Some title here'
-        },
-        mobileToggle: {
-            type: Boolean,
-            default: false
         }
     },
     data () {
         return {
-            dataMobile: this.mobileToggle,
             toggle: false,
             defaultElements: [
                 {name: 'DASHBOARD', subelements: [],
@@ -185,15 +180,12 @@ export default {
            this.toggle = !this.toggle
         },
         isMobile () {
-            this.dataMobile = !this.dataMobile
+            this.$emit('close')
         }
     },
     computed: {
         navElements () {
             return this.elements || this.defaultElements
-        },
-        hidenNav () {
-            return this.dataMobile ? 'hiden-nav' : ' '
         },
         matchPath () {
             let exp = new RegExp(/\/\w*\//)

@@ -1,8 +1,8 @@
 <template>
   <div id="app" >
-    <vu-menu  />
+    <vu-menu :class="isVisible" @close="toggleAction" />
     <div id="my-body">
-      <vu-header @toggleClick="log"/>
+      <vu-header :toggle="toggleNav" @toggleClick="toggleAction"/>
       <router-view/> 
     <footer>
       footer
@@ -14,19 +14,20 @@
 <script>
 import VuMenu from '@/components/navigation/VuMenu'
 import VuHeader from '@/components/navigation/VuHeader'
-import { searchGetters } from '@/store/helpers'
+import { searchGetters, searchActions } from '@/store/helpers'
 export default {
   components: {
     VuMenu,
     VuHeader
   },
   computed: {
-    ...searchGetters
+    ...searchGetters,
+    isVisible () {
+      return this.toggleNav ? ' ' : 'hiden-nav'
+    }
   },
   methods: {
-    log () {
-      alert('you click in toggle')
-    }
+    ...searchActions
   }
 }
 </script>
@@ -48,5 +49,8 @@ footer {
   #my-body {
     width:100%;
   }
+  .hiden-nav {
+      margin-left: -16rem;
+  }  
 }
 </style>
