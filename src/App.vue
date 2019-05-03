@@ -3,10 +3,7 @@
     <vu-menu :class="isVisible" @close="toggleAction" />
     <div id="my-body">
       <vu-header :toggle="toggleNav" @toggleClick="toggleAction"/>
-      <router-view/> 
-    <footer>
-      footer
-    </footer>       
+      <router-view/>       
     </div>      
   </div>    
 </template>
@@ -32,10 +29,11 @@ export default {
 }
 </script>
 
-<style>
+<style >
 body {
   margin: 0;
-  background-color: bisque;
+  background:#D980FA;
+
 }
 #my-body {  
   border: solid red 1px;
@@ -43,6 +41,7 @@ body {
   float: right;
 }
 footer {
+  float:right;
   border: solid red 1px;
 }
 @media only screen and (max-width: 900px) {
