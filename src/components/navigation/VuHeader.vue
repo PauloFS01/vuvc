@@ -3,13 +3,19 @@
         <div id="header-div">
 
             <!--Config and options to right side of the header -->
-            <div id="avatar-settings"> 
+
+            <div class="side-toggle">
+                <i v-if="toggle" @click="sideToggle" class="fas fa-align-left"></i>              
+                <i v-else @click="sideToggle" class="fas fa-align-justify"></i>
+            </div>
+
+            <div id="avatar-settings">
                 <div class="search-shortcut"><i class="fas fa-search"  @click="modalToggle = !modalToggle"></i></div>
                 <div class="notification-alert"><i class="far fa-bell" @click="notificationToggle = !notificationToggle"></i></div>
                 <div class="config-shortcut">
                     <router-link class="decoration-link" :to="configLink">
                         <i class="fas fa-cog "></i>
-                    </router-link>                    
+                    </router-link>
                 </div> 
             </div>
             
@@ -125,6 +131,10 @@ export default {
         // will send toggle click to parent
         toggleClick () {
             this.$emit('toggleClick')
+        },
+        // will send toggle to side-bar
+        sideToggle () {
+            this.$emit('toggleSide')
         }
     }
 }
@@ -132,8 +142,8 @@ export default {
 <style lang="scss" scoped>
 #header-div {
     height: 3rem;
-    padding-top: 1rem;
-    background: #ff6868;
+    padding-top:.5rem;
+    box-shadow: 5px 5px 8px #888888;
 }
 
 #sideBar-toggle {
@@ -143,9 +153,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gray;
     color: white;
-    float: left;
+    float: left;    
+    
 }
 
 .notification-list {
@@ -167,10 +177,12 @@ export default {
         }
     }
 }
+
 .decoration-link {
     text-decoration: none;
     color: grey;
 }
+
 #avatar-settings{
     float: right;
     width: 10rem;
@@ -310,6 +322,9 @@ export default {
 }
 
 @media only screen and (max-width: 899px) {
+    .side-toggle {
+        display: none;
+    }
     #avatar-settings {
         display: none;
     }
@@ -340,14 +355,18 @@ export default {
         text-align: left;     
         background-color:white;  
         transition: all .3s ease;
+        box-shadow: 5px 10px 8px #888888;
         i {
             padding: 1rem;
         }
     }
-    .toogles-buttons >div{
-        width: 50%;
-        float: left;        
-        box-sizing: border-box;
+    .toogles-buttons {
+        div {
+            width: 50%;
+            float: left;        
+            box-sizing: border-box;
+            padding:.5rem;
+        }
     }
     .right-padding {
         padding-right: 1rem;
@@ -367,6 +386,11 @@ export default {
 }
 
 @media only screen and (min-width: 900px) {
+    .side-toggle {
+        float: left;
+        padding: .5rem;
+        font-size:1.2rem;
+    }
     #avatar-settings-mobile {
         display: none;
     }     

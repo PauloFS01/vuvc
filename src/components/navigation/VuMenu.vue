@@ -1,26 +1,27 @@
-<template>
+<template>    
     <div class="navbar-div">
         <!--desktop begin-->
+        
         <div id="desktop-nav">
             <div class="header-div">
                 <div><i v-if="!toggle" @click="navToggle" class="fas fa-arrow-right"></i> 
                 <i v-if="toggle" @click="navToggle" class="fas fa-arrow-left"></i>
                 <span v-if="toggle">{{ headerTitle }}</span>  </div>
-            </div>            
+            </div>
             <div class="body-div">
                 <div class="elements-div">
 
                     <!--Begin menu elements-->
                     <div class="elements-item" v-for="(element, index) in navElements" :key="index">
-
-                        <!--Begin menu with subelements-->
+                        
+                        <!--Begin menu with subelements-->                        
                         <div v-if="element.subelements[0]" :class="(matchPath === element.link + '/')? 'actived-link' : ' '">
-                            <span class="icon-item"> <i :class="element.icon || 'far fa-question-circle'"> </i></span>
+                            <span class="icon-item"> <i :class="element.icon || 'far fa-question-circle'"> </i></span>                            
                             <span v-if="toggle">
                                 {{ element.name }}
                                 <div class="icon-arrow"><i  @click="element.show = !element.show" class="fas fa-caret-down" ></i></div>
-                            </span>
-                        </div>                        
+                            </span>                            
+                        </div>
 
                         <!--Begin menu without subelements-->
                         <div v-else>
@@ -30,7 +31,7 @@
                                     {{ element.name }}
                                 </span>
                             </router-link>
-                        </div>
+                        </div>                        
 
                         <!--Begin subelements-->
                         <div v-if="element.show" class="subelements-div">
@@ -53,9 +54,11 @@
                 </div>
             </div>
         </div>
+        
         <!--desktop end-->
 
         <!--Mobile begin-->
+        
         <div id="mobile-nav">
             <div class="header-div">
                 <div> <span> {{ headerTitle }} </span> <i @click="isMobile" class="fas fa-times-circle"></i>  </div>
@@ -106,7 +109,7 @@
 
                 </div>
             </div>
-        </div>           
+        </div>                  
         <!--Mobile end-->
 
     </div>
@@ -121,11 +124,14 @@ export default {
         headerTitle: {
             type: String,
             default: 'Some title here'
+        },
+        toggle: {
+            type: Boolean,
+            default: false
         }
     },
     data () {
-        return {
-            toggle: false,
+        return {            
             defaultElements: [
                 {name: 'DASHBOARD', subelements: [],
                 link: '/', show: false, icon: 'fas fa-landmark'},
@@ -177,7 +183,7 @@ export default {
     },
     methods: {
         navToggle () {
-           this.toggle = !this.toggle
+           this.$emit('close')
         },
         isMobile () {
             this.$emit('close')
@@ -198,14 +204,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/themes/default/_barrel.scss';
 .navbar-div {
     background-color: #212121;
     color: gray;
     height: 100%;
-    min-width: 5%;
+    min-width: 3%;
     box-sizing: border-box;
     position: fixed;
     overflow-y: auto;
+    z-index: 9997;
 }
 .header-div {
     border-bottom: solid grey 1px; 
@@ -263,6 +271,7 @@ export default {
 ::-webkit-scrollbar-thumb {
     background: #dad7d7;
 }
+
 @media only screen and (max-width: 900px) {
     #desktop-nav {
         display: none;

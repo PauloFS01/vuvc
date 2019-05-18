@@ -48,68 +48,88 @@ button {
     }
 }
 .primary {
-    color: white;    
-    background:#82ccdd;
+    color: #82ccdd;    
+    background:transparent;
+    border:solid #82ccdd 2px;
     &:active {
         background:#82ccdd;
+        color:white;
     }
     &:hover {
         background:#60a3bc;
+        color:white;
     }
     &:focus {
-        background:#60a3bc; 
+        background:#60a3bc;
+        color:white;
     }
 }    
 .info {
-    color: white;    
-    background:#9AECDB;
+    color: #9AECDB;    
+    background:transparent;
+    border:solid #9AECDB 2px;
     &:active {
         background:#9AECDB;
+        color:white;
     }
     &:hover {
         background:#58B19F;
+        color:white;
     }
     &:focus {
         background:#58B19F; 
+        color:white;
     }
 } 
 .success {
-    color: white;    
-    background:#1dd1a1;
+    color: #1dd1a1;    
+    background:transparent;
+    border:solid #1dd1a1 2px;
     &:active {
         background:#1dd1a1;
+        color:white;
     }
     &:hover {
         background:#10ac84;
+        color:white;
     }
     &:focus {
         background:#10ac84; 
+        color:white;
     }
 } 
 .warning {
-    color: white;    
-    background:#fbc531;
+    color: #fbc531;    
+    background:transparent;
+    border:solid #fbc531 2px;
     &:active {
         background:#fbc531;
+        color:white;
     }
     &:hover {
         background:#e1b12c;
+        color:white;
     }
     &:focus {
         background:#e1b12c; 
+        color:white;
     }
 } 
 .danger {
-    color: white;    
-    background:#fc5c65;
+    color: #fc5c65;    
+    background:transparent;
+    border:solid #fc5c65 2px;
     &:active {
         background:#fc5c65;
+        color:white;
     }
     &:hover {
         background:#eb3b5a;
+        color:white;
     }
     &:focus {
         background:#eb3b5a; 
+        color:white;
     }
 } 
 </style>

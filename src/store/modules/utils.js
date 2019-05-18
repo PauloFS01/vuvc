@@ -1,7 +1,7 @@
 export default {
     state: {
         navElements:[],
-        toggleNav: true
+        toggleNav: false
     },
     mutations:{
         CHANGE_TOGGLE (state) {
