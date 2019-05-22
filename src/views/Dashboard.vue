@@ -104,7 +104,10 @@
         <div class="div-list" :data-desc-tip="lists">
             <div class="table-div">
                 <list-table :tableHead="tableHead" :tableBody="tableBody"/>
-            </div>            
+            </div>   
+            <div class="table-div">
+                <list-task @checked="listChecked" @delete="listtTask"/>
+            </div>
         </div>
         <!-- end div list -->
     </div>
@@ -116,13 +119,15 @@ import ButtomChange from '@/components/buttom/ButtomChange'
 import ButtomFill from '@/components/buttom/ButtomFill'
 import ButtomLabel from '@/components/buttom/ButtomLabel'
 import ListTable from '@/components/lists/ListTable'
+import ListTask from '@/components/lists/ListTask'
 export default {
     components: {
         UpgradeCard,
         ButtomChange,
         ButtomFill,
         ButtomLabel,
-        ListTable
+        ListTable,
+        ListTask
     },
     data () {
         return {
@@ -136,6 +141,14 @@ export default {
                 ['Marie', 'France', 'Paris', '$:4000'],
                 ['Marcos', 'Brazil', 'São Paulo', '$:15000']
             ]
+        }
+    },
+    methods: {
+        listtTask (id) {
+            alert(`Delete task id: ${id}`)
+        },
+        listChecked (target) {
+            console.log(`Checked element: ${target.id} isChecked: ${target.checked}`)
         }
     }
 }
@@ -170,8 +183,8 @@ export default {
     }
 }
 .div-list {
-    margin-top:2.5rem;
-    position: relative;
+    margin:2.5rem 0 1rem 0;
+    position: relative;  
     &::before{
         content:attr(data-desc-tip);
         position:absolute;
