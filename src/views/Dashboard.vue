@@ -108,6 +108,9 @@
             <div class="table-div">
                 <list-task @checked="listChecked" @delete="listtTask"/>
             </div>
+            <div class="table-div">
+                <list-toggle />
+            </div>
         </div>
         <!-- end div list -->
     </div>
@@ -120,6 +123,7 @@ import ButtomFill from '@/components/buttom/ButtomFill'
 import ButtomLabel from '@/components/buttom/ButtomLabel'
 import ListTable from '@/components/lists/ListTable'
 import ListTask from '@/components/lists/ListTask'
+import ListToggle from '@/components/lists/ListToggle'
 export default {
     components: {
         UpgradeCard,
@@ -127,7 +131,8 @@ export default {
         ButtomFill,
         ButtomLabel,
         ListTable,
-        ListTask
+        ListTask,
+        ListToggle
     },
     data () {
         return {

@@ -67,7 +67,7 @@ export default {
 }
 footer {
     padding:1rem;
-     background:#47c485;
+    background:#47c485;
     color:white;
     border-radius:0 0 5px 5px;
 }
