@@ -113,6 +113,20 @@
             </div>
         </div>
         <!-- end div list -->
+
+        <!-- begin div profile -->
+        <div class="div-profile">
+            <div class="user-profile">
+                <div class="first-element">
+                    <profile-card />
+                </div>
+            </div>
+            <div class="user-profile">
+                <div class="second-element"></div>
+            </div>                    
+        </div>
+        <!-- end div profile -->
+
     </div>
 </template>
 
@@ -124,6 +138,7 @@ import ButtomLabel from '@/components/buttom/ButtomLabel'
 import ListTable from '@/components/lists/ListTable'
 import ListTask from '@/components/lists/ListTask'
 import ListToggle from '@/components/lists/ListToggle'
+import ProfileCard from '@/components/profile/ProfileCard'
 export default {
     components: {
         UpgradeCard,
@@ -132,7 +147,8 @@ export default {
         ButtomLabel,
         ListTable,
         ListTask,
-        ListToggle
+        ListToggle,
+        ProfileCard
     },
     data () {
         return {
@@ -206,6 +222,40 @@ export default {
     margin:auto;
     padding-top:2rem;
 }
+.div-profile {
+    padding:.5rem;
+    margin:3rem 0 1rem 0;
+    display:grid;
+    grid-auto-rows:minmax(100px, auto);   
+    grid-template-columns:1fr;  
+    gap:1rem; 
+    position: relative; 
+    &::before{
+        content:"Profiles";
+        position:absolute;
+        display:block;
+        top:-30px;
+        font-size:1.5rem;
+        font-family:sans-serif;
+        color:$text-dark;
+        margin-left:.5rem;        
+    }    
+}
+.user-profile {
+     // border:solid red 1px;
+    div {
+        // border:solid blue 1px;
+    }
+}
+.first-element {
+    width:25rem;
+    margin:auto;    
+    height: 20rem;
+}
+.second-element {
+    height:25rem;
+    margin:auto;
+}
 @media only screen and (min-width: 900px) {
     #div-buttons {
         display:grid;
@@ -216,6 +266,9 @@ export default {
         padding-top:2.5rem;
         margin:auto;
     }
+    .div-Profile {
+        background:red;
+    }     
 }
 @media only screen and (min-width: 1100px) { 
     .div-cards {
@@ -227,9 +280,15 @@ export default {
     #div-buttons {
         display:grid;
         grid-template-columns:repeat(3, 1fr);
-    }  
+    }
+    .div-profile  {        
+        grid-template-columns: 1fr 2fr;
+    }
+    .first-element {
+        width:100%;
+        height: 30rem;
+    }    
  }
-
 
 </style>
 
