@@ -45,6 +45,7 @@ export default {
 <style lang="scss">
 body {
   margin:0;  
+  padding:0;
 }
 @media only screen and (min-width: 900px) {
   .nav-min {
@@ -62,12 +63,6 @@ body {
   .my-body {
     min-height: 50rem;
     background:white;
-  }
-
-}
-@media only screen and (max-width: 300px) {
-  body {
-    display:inline-block;
   }
 }
 </style>

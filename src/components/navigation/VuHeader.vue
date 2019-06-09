@@ -53,13 +53,15 @@
                             <i id="fixed-buttom" class="fas fa-ellipsis-v" @click="mobileToggle = !mobileToggle"></i>
                         </div>                          
                      </div>
-                    <div class="search-shortcut"><i class="fas fa-search"  @click="modalToggle = !modalToggle"></i></div>
-                    <div class="notification-alert"><i class="far fa-bell" @click="notificationToggle = !notificationToggle"></i></div>
-                    <div class="config-shortcut"> 
-                        <router-link class="decoration-link" :to="configLink">
-                            <i class="fas fa-cog "></i>
-                        </router-link>
-                    </div>                     
+                     <div class="hiddens-bottons">
+                        <div class="search-shortcut"><i class="fas fa-search"  @click="modalToggle = !modalToggle"></i></div>
+                        <div class="notification-alert"><i class="far fa-bell" @click="notificationToggle = !notificationToggle"></i></div>
+                        <div class="config-shortcut"> 
+                            <router-link class="decoration-link" :to="configLink">
+                                <i class="fas fa-cog "></i>
+                            </router-link>
+                        </div>                           
+                     </div>
                 </div>
                 </transition>
 
@@ -143,7 +145,7 @@ export default {
 #header-div {
     height: 3rem;
     padding-top:.5rem;
-    box-shadow: 5px 5px 8px #888888;
+    box-shadow: 0px 3px 20px #888888;
 }
 
 #sideBar-toggle {
@@ -353,13 +355,20 @@ export default {
         display: grid;
         grid-template-rows:1fr;   
         text-align: left;     
-        background-color:white;  
+        background-color:rgb(250, 215, 215);  
         transition: all .3s ease;
         box-shadow: 5px 10px 8px #888888;
+        box-sizing:border-box;
         i {
-            padding: 1rem;
+            margin-top:.5em;
         }
     }
+    .hiddens-bottons {
+        div {
+            width:100%;
+            padding:.5em;
+        }             
+    }    
     .toogles-buttons {
         div {
             width: 50%;

@@ -58,16 +58,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+// colors
+$border-color:#dfe6e9;
+
 .wrapper {    
     border-radius: 5px;
     padding: 1rem;
     background: white;
     box-shadow: 5px 10px 8px #888888;
+    overflow:hidden;
 }
 .card {
 
     .line {
-        border-bottom: solid #dfe6e9 1px;
+        border-bottom: solid $border-color 1px;
     }      
 }
 .slot-text {
@@ -91,7 +96,7 @@ export default {
 @media only screen and (max-width: 899px) {
     .wrapper {
         border-radius: 0;
-        box-shadow: 0 0 0;
+        box-shadow: 1px 1px 1px $border-color;
     }
 }
 

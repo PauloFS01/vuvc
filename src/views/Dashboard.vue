@@ -115,6 +115,7 @@
         <!-- end div list -->
 
         <!-- begin div profile -->
+
         <div class="div-profile">
             <div class="user-profile">
                 <div class="first-element">
@@ -122,9 +123,12 @@
                 </div>
             </div>
             <div class="user-profile">
-                <div class="second-element"></div>
+                <div class="second-element">
+                    <singup-form />
+                </div>
             </div>                    
         </div>
+
         <!-- end div profile -->
 
     </div>
@@ -139,6 +143,7 @@ import ListTable from '@/components/lists/ListTable'
 import ListTask from '@/components/lists/ListTask'
 import ListToggle from '@/components/lists/ListToggle'
 import ProfileCard from '@/components/profile/ProfileCard'
+import SingupForm from '@/components/form/SingupForm'
 export default {
     components: {
         UpgradeCard,
@@ -148,7 +153,8 @@ export default {
         ListTable,
         ListTask,
         ListToggle,
-        ProfileCard
+        ProfileCard,
+        SingupForm
     },
     data () {
         return {
