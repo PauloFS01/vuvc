@@ -3,7 +3,7 @@
     <h1>Overview</h1>
     <div class="div-arrangement">
 
-       <!-- begin div cards --->
+       <!-- begin div cards -->
       <div class="cards">
         <upgrade-card />
         <upgrade-card 
@@ -23,47 +23,47 @@
           footerDesc="Fonts or descriptions"
          />
       </div>
-      <!-- end div cards --->
+      <!-- end div cards -->
 
       <!-- begin of bottom -->
       <div class="botton">
         <div class="div-botton">
-          <buttom-change />  
+          <button-change />  
         </div>
         <div class="div-botton">
-          <buttom-change textButtom="Primary" color="primary"/>  
+          <button-change textbutton="Primary" color="primary"/>  
         </div>
         <div class="div-botton">
-          <buttom-change textButtom="Info" color="info"/>  
+          <button-change textbutton="Info" color="info"/>  
         </div>
         <div class="div-botton">
-          <buttom-change textButtom="Success" color="success"/>  
+          <button-change textbutton="Success" color="success"/>  
         </div> 
         <div class="div-botton">
-          <buttom-change textButtom="Warning" color="warning"/>  
+          <button-change textbutton="Warning" color="warning"/>  
         </div>
         <div class="div-botton">
-          <buttom-change textButtom="Danger" color="danger"/>  
+          <button-change textbutton="Danger" color="danger"/>  
         </div>
       </div>
       <div class="botton">
         <div class="div-botton">
-          <buttom-label /> 
+          <button-label /> 
         </div>
         <div class="div-botton">
-          <buttom-label textButtom="Setting" color="settings" iconLabel="fas fa-cog" /> 
+          <button-label textbutton="Setting" color="settings" iconLabel="fas fa-cog" /> 
         </div>
         <div class="div-botton">
-          <buttom-label textButtom="Back" color="back" iconLabel="fas fa-angle-double-left" />
+          <button-label textbutton="Back" color="back" iconLabel="fas fa-angle-double-left" />
         </div>
         <div class="div-botton">
-          <buttom-label textButtom="Submit" color="submit" iconLabel="fas fa-check" />
+          <button-label textbutton="Submit" color="submit" iconLabel="fas fa-check" />
         </div> 
         <div class="div-botton">
-          <buttom-label textButtom="Search" color="search" iconLabel="fas fa-search" /> 
+          <button-label textbutton="Search" color="search" iconLabel="fas fa-search" /> 
         </div>
         <div class="div-botton">
-          <buttom-label textButtom="Delete" color="delete" iconLabel="fas fa-trash-alt" />  
+          <button-label textbutton="Delete" color="delete" iconLabel="fas fa-trash-alt" />  
         </div>
       </div>
       <!-- end of bottom -->
@@ -92,6 +92,51 @@
       </div>
       <!-- end of form -->
 
+      <!-- begin of notification -->
+      <div class="notifications">
+        <div class="notification-div">
+          <notifications />
+        </div>
+       <div class="notification-div">
+          <notifications color="info"/>
+        </div>
+       <div class="notification-div">
+          <notifications color="success"/>
+        </div>
+       <div class="notification-div">
+          <notifications color="warning"/>
+        </div>
+       <div class="notification-div">
+          <notifications color="danger"/>
+        </div>                                
+      </div>
+      
+      <div class="notifications">
+        <div class="notification-div"> <button-fill @click="change('bottom')" textbutton="Primary" color="primary" /> </div>
+        <div class="notification-div"> <button-fill @click="change('top')" textbutton="Info" color="info" /> </div>
+        <div class="notification-div"> <button-fill @click="change('left')" textbutton="Success" color="success" /> </div>
+        <div class="notification-div"> <button-fill @click="change('right')" textbutton="Warning" color="warning" /> </div>
+        <div class="notification-div"> <button-fill @click="change('center')" textbutton="Danger" color="danger" /> </div>
+      </div>
+      <!-- end of notification -->
+
+      <!-- begin notification modal -->
+      <div class="notification-modal pos-bottom" v-if="modalToggle ==='bottom'">
+          <notifications @close="notificationClose" />
+      </div>      
+      <div class="notification-modal pos-top" v-if="modalToggle ==='top'">
+          <notifications @close="notificationClose" color="info"/>
+      </div>   
+      <div class="notification-modal pos-left" v-if="modalToggle === 'left'">
+          <notifications @close="notificationClose" color="success"/>
+      </div>   
+      <div class="notification-modal pos-right" v-if="modalToggle === 'right'">
+          <notifications @close="notificationClose" color="warning"/>
+      </div>   
+      <div class="notification-modal pos-center" v-if="modalToggle === 'center'">
+          <notifications @close="notificationClose" color="danger"/>
+      </div>                           
+      <!-- end notification modal -->      
     </div>
   </div>
 </template>
@@ -99,20 +144,25 @@
 <script>
 // @ is an alias to /src
 import UpgradeCard from '@/components/dashboard/UpgradeCard.vue'
-import ButtomChange from '@/components/buttom/ButtomChange.vue'
-import ButtomLabel from '@/components/buttom/ButtomLabel.vue'
+import ButtonChange from '@/components/button/ButtonChange.vue'
+import ButtonLabel from '@/components/button/ButtonLabel.vue'
+import ButtonFill from '@/components/button/ButtonFill.vue'
 import ListTask from '@/components/lists/ListTask'
 import ProfileCard from '@/components/profile/ProfileCard'
 import SingupForm from '@/components/form/SingupForm'
+import Notifications from '@/components/alert/Notifications'
+import { setTimeout } from 'timers';
 export default {
   name: 'home',
   components: {
     UpgradeCard,
-    ButtomChange,
-    ButtomLabel,
+    ButtonChange,
+    ButtonLabel,
+    ButtonFill,
     ListTask,
     ProfileCard,
-    SingupForm
+    SingupForm,
+    Notifications
   },
   data () {
     return {
@@ -121,7 +171,8 @@ export default {
           ['John', 'United Kingdom', 'Londom','$:3000'],
           ['Marie', 'France', 'Paris', '$:4000'],
           ['Marcos', 'Brazil', 'São Paulo', '$:15000']
-      ]      
+      ],
+      modalToggle:null,
     }
   },
     methods: {
@@ -134,6 +185,15 @@ export default {
         formSubmit (formData) {
           alert(`User: ${formData.name} ${formData.surname} Age: ${formData.age}: Company: ${formData.company} 
             E-mail: ${formData.email} Password: ${formData.password}`)
+        },
+        // change modal
+        change (value) {
+          // clearTimeout(this.timeOut)
+          this.modalToggle = value          
+          this.time = setTimeout(() => { this.modalToggle = null }, 2000)
+        },
+        notificationClose () {
+          this.modalToggle = null
         }
     }
 }
@@ -145,6 +205,7 @@ export default {
    margin:0;
    padding:0;
  }
+
  @mixin clear-single {
   padding:.5rem;
   margin-top:2em;   
@@ -153,8 +214,10 @@ export default {
  // settings
  .home {
   @include clear-size;
+  //display:grid;
   overflow:hidden;
  }
+
  h1 {
    @include clear-size;
    width:100%;
@@ -182,7 +245,6 @@ export default {
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap:.5em;
-  // div-botton
   div {
     display:grid;
     place-items:center;
@@ -208,12 +270,62 @@ export default {
   @include clear-single;
 }
 
+//notification diplay
+.notifications {
+  @include clear-single;
+  display:grid;
+  width:70%;
+  margin:auto;
+  grid-template-columns:repeat(2, 1fr);
+}
+.notification-div {
+  padding:.5em;
+}
+.notification-modal {
+  width:20em;
+  position:fixed;
+  z-index:99999;
+  margin:1em;
+}
+.pos-bottom {
+  bottom:0;
+  left:25%;
+}
+.pos-top {
+  top:0;
+  left:50%;
+}
+.pos-left {
+  top:50%;
+  left:0;
+}
+.pos-right {
+  top:50%;
+  right:0%;
+}
+.pos-center {
+  top:30%;
+  left:40%;
+}
 // desktop display
 @media only screen and (min-width: 900px) {
   .form {
-    width: 70%;
-    margin:auto;
+    display: grid;
+    place-items:center;
   }
 }
+@media only screen and (max-width: 740px) {
+  .notifications {
+    grid-template-columns:1fr;
+  }
+}
+
+// transition classes
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
  </style>
- 

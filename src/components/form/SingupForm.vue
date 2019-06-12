@@ -3,11 +3,13 @@
         <div id="form-header"><h3>SingUp to started your account free trial</h3></div>
         <form @submit.prevent>
             <div class="form-field">
-                <span class="title-field" data-desc-number="2">{{firstField}}</span>
+                <span class="title-field" data-desc-number="1">{{firstField}}</span>
             </div>      
-            <div class="div-alert" v-if="err">{{ err }}</div>      
+            <transition name="alert">
+                <div class="div-alert" v-if="err">{{ err }}</div> 
+            </transition>
+                 
             <div id="first-field">
-                
                 <input type="text" placeholder="first name" v-model="formData.name">                
                 <input type="text" placeholder="last name" v-model="formData.surnames">
                 <input type="number" placeholder="your age" v-model="formData.age">
@@ -16,15 +18,17 @@
             <div class="form-field">
                 <span class="title-field" data-desc-number="2">{{secondField}}</span>
             </div>
-            <div class="div-alert" v-if="errMail">{{ errMail }}</div>
+            <transition name="alert">
+                <div class="div-alert" v-if="errMail">{{ errMail }}</div>
+            </transition>
+            
             <div id="credential-field">
-                
                 <input type="text" placeholder="E-mail Address" v-model="formData.email">
                 <input type="password" placeholder="Password" v-model="formData.password">
             </div>
             <div id="div-buttom">
                 <button @click="submit">Submit</button>
-            </div>        
+            </div>
         </form>
     </div>
 </template>
@@ -110,7 +114,7 @@ $alert-color:#f7cae6;
 }
 #wrapper{
     border-radius:5px;
-    box-shadow: 5px 10px 8px #888888;
+    box-shadow:5px 10px 8px #888888;
     min-height:10em;
     font-family:arial, sans-serif!important;
 }
@@ -118,7 +122,7 @@ $alert-color:#f7cae6;
     background:$header-color;
     color:white;
     text-align:center;
-    padding: 1em;
+    padding:1em;
     border-radius:5px 5px 0 0;
     h3 {
         margin:0;
@@ -126,6 +130,7 @@ $alert-color:#f7cae6;
 }
 form {
     padding:2em;
+    box-sizing:border-box;
 }
 .title-field {
     font-size:1.5em;
@@ -197,12 +202,25 @@ input {
     align-items:center;
     justify-content:center;
 }
+.alert-enter-active {
+    transform-origin:top left;
+    animation: growIn .5s;
+}
+.alert-leave-active {
+  transition: all .3s ease-out;
+  opacity: 0;
+}
+@keyframes growIn {
+    0% {
+        transform: scale(0);
+    } 
+    100% {
+        transform: scale(1);
+    } 
+}
 @media only screen and (min-width: 900px) {
     .title-field {
         margin-left:2.5em;
-    }
-    form {
-        padding:3em;
     }    
     input {
         appearance:none;
@@ -212,10 +230,12 @@ input {
         height:4em;
     }     
     #first-field {
+        box-sizing:border-box;
+        position:relative;
         display:grid;
         grid-template-columns:2fr 1fr 1fr;
         gap:.5em;
-        margin-top:2em;       
+        margin-top:2em;
         #input-company {
             grid-column:1/4;
         }

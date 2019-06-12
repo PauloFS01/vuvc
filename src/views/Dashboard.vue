@@ -1,6 +1,6 @@
 <template>
     <div class="dashboard-body">
-        <!-- begin div cards --->
+        <!-- begin div cards -->
         <div class="div-cards">
             <div class="change-cards">                 
                 <upgrade-card />                
@@ -29,76 +29,76 @@
             </div>
 
         </div>
-        <!-- end div cards --->
+        <!-- end div cards -->
 
-        <!-- begin div buttons --->
+        <!-- begin div buttons -->
         <div id="div-buttons">
 
             <div class="button-change" :data-desc-tip="btnChange">
                 <div class="button-class">
-                    <buttom-change />
+                    <button-change />
                 </div>
                 <div class="button-class">
-                    <buttom-change textButtom="Primary" color="primary"/>
+                    <button-change textbutton="Primary" color="primary"/>
                 </div>
                 <div class="button-class">
-                    <buttom-change textButtom="Info" color="info"/>
+                    <button-change textbutton="Info" color="info"/>
                 </div>
                 <div class="button-class">
-                    <buttom-change textButtom="Success" color="success"/>
+                    <button-change textbutton="Success" color="success"/>
                 </div>
                 <div class="button-class">
-                    <buttom-change textButtom="Warning" color="warning"/>
+                    <button-change textbutton="Warning" color="warning"/>
                 </div>
                 <div class="button-class">
-                    <buttom-change textButtom="Danger" color="danger"/>
+                    <button-change textbutton="Danger" color="danger"/>
                 </div>                   
             </div>
 
             <div class="button-change" :data-desc-tip="btnFill">
                 <div class="button-class">
-                    <buttom-fill />
+                    <button-fill />
                 </div>         
                 <div class="button-class">
-                    <buttom-fill textButtom="Primary" color="primary"/>
+                    <button-fill textbutton="Primary" color="primary"/>
                 </div>
                 <div class="button-class">
-                    <buttom-fill textButtom="Info" color="info"/>
+                    <button-fill textbutton="Info" color="info"/>
                 </div> 
                 <div class="button-class">
-                    <buttom-fill textButtom="Success" color="success"/>
+                    <button-fill textbutton="Success" color="success"/>
                 </div> 
                 <div class="button-class">
-                    <buttom-fill textButtom="Warning" color="warning"/>
+                    <button-fill textbutton="Warning" color="warning"/>
                 </div> 
                 <div class="button-class">
-                    <buttom-fill textButtom="Danger" color="danger"/>
+                    <button-fill textbutton="Danger" color="danger"/>
                 </div>                                                                                 
             </div>
 
             <div class="button-change" :data-desc-tip="btnIcon">
                 <div class="button-class">
-                    <buttom-label />
+                    <button-label />
                 </div> 
                 <div class="button-class">
-                    <buttom-label textButtom="Setting" color="settings" iconLabel="fas fa-cog" />
+                    <button-label textbutton="Setting" color="settings" iconLabel="fas fa-cog" />
                 </div>     
                 <div class="button-class">
-                    <buttom-label textButtom="Submit" color="submit" iconLabel="fas fa-check" />
+                    <button-label textbutton="Submit" color="submit" iconLabel="fas fa-check" />
                 </div>      
                 <div class="button-class">
-                    <buttom-label textButtom="Back" color="back" iconLabel="fas fa-angle-double-left" />
+                    <button-label textbutton="Back" color="back" iconLabel="fas fa-angle-double-left" />
                 </div>
                 <div class="button-class">
-                    <buttom-label textButtom="Search" color="search" iconLabel="fas fa-search" />
+                    <button-label textbutton="Search" color="search" iconLabel="fas fa-search" />
                 </div>
                 <div class="button-class">
-                    <buttom-label textButtom="Delete" color="delete" iconLabel="fas fa-trash-alt" />
+                    <button-label textbutton="Delete" color="delete" iconLabel="fas fa-trash-alt" />
                 </div>                 
             </div>
 
         </div>
-        <!-- end div buttons --->
+        <!-- end div buttons -->
 
         <!-- begin div list -->
         <div class="div-list" :data-desc-tip="lists">
@@ -136,9 +136,9 @@
 
 <script>
 import UpgradeCard from '@/components/dashboard/UpgradeCard'
-import ButtomChange from '@/components/buttom/ButtomChange'
-import ButtomFill from '@/components/buttom/ButtomFill'
-import ButtomLabel from '@/components/buttom/ButtomLabel'
+import buttonChange from '@/components/button/ButtonChange'
+import ButtonFill from '@/components/button/ButtonFill'
+import buttonLabel from '@/components/button/ButtonLabel'
 import ListTable from '@/components/lists/ListTable'
 import ListTask from '@/components/lists/ListTask'
 import ListToggle from '@/components/lists/ListToggle'
@@ -147,9 +147,9 @@ import SingupForm from '@/components/form/SingupForm'
 export default {
     components: {
         UpgradeCard,
-        ButtomChange,
-        ButtomFill,
-        ButtomLabel,
+        buttonChange,
+        ButtonFill,
+        buttonLabel,
         ListTable,
         ListTask,
         ListToggle,
