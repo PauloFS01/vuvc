@@ -9,6 +9,7 @@ $color-5: #47c485;
 $color-6: #333637;
 $color-7: #c4a547;
 $color-8: #292f32;
+$color-9: #f4f3ef;
 
 // Colors variation
 
@@ -59,3 +60,9 @@ $color-8-50: lighten($color-8, 10%);
 $color-8-100: $color-8;
 $color-8-200: darken($color-8, 10%);
 $color-8-400: darken($color-8, 20%);
+
+$color-9-25: lighten($color-9, 25%);
+$color-9-50: lighten($color-9, 10%);
+$color-9-100: $color-9;
+$color-9-200: darken($color-9, 10%);
+$color-9-400: darken($color-9, 20%);

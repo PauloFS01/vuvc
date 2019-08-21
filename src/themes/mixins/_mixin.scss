@@ -1,32 +1,37 @@
-@mixin side-bar-transition ($value) {
-  transition: transform linear $value .7s
+@mixin body-default {
+  background: #f4f3ef;
+  padding: 3rem;
 }
 
-@mixin cta-button-hover ($main) {
-    background-color: $main;
+@mixin side-bar-transition($value) {
+  transition: transform linear $value 0.7s;
 }
 
-@mixin cta-button-active ($main, $secundary, $font) {
+@mixin cta-button-hover($main) {
+  background-color: $main;
+}
+
+@mixin cta-button-active($main, $secundary, $font) {
   background-color: rgba($secundary, 0.5);
   color: $font;
 }
 
-@mixin ct-hidden () {
+@mixin ct-hidden() {
   visibility: hidden;
   opacity: 0;
   transition: opacity 1s;
 }
 
-@mixin ct-visible () {
+@mixin ct-visible() {
   visibility: visible;
   opacity: 1;
 }
 
-@mixin bc-color ($color) {
+@mixin bc-color($color) {
   background-color: $color;
 }
 
-@mixin primary-button-hover ($main, $font) {
+@mixin primary-button-hover($main, $font) {
   background: $main;
   color: $font;
 }
