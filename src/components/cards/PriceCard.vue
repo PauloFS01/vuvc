@@ -1,5 +1,5 @@
 <template>
-  <div id="price-wrapper" :style="styleObject">Price card</div>
+  <div id="price-wrapper" :style="styleObject"></div>
 </template>
 
 <script>
@@ -33,7 +33,8 @@ export default {
 
 <style>
 #price-wrapper {
-  border-radius: 5px;
-  padding: 1em;
+  padding: 2em;
+  height: 100%;
+  position: relative;
 }
 </style>

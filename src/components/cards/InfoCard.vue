@@ -4,8 +4,9 @@
       <i class="fas fa-redo-alt"></i>
     </div>
     <div id="data">
-      <span id="value">10,29%</span>
-      <br />Bounce Rate
+      <span id="value">{{ text }}</span>
+      <br />
+      {{ subText }}
     </div>
   </div>
 </template>
@@ -23,6 +24,14 @@ export default {
     },
     iconColor: {
       type: String
+    },
+    text: {
+      type: String,
+      default: "10,29%"
+    },
+    subText: {
+      type: String,
+      default: "Bounce Rate"
     }
   },
   data() {
@@ -42,15 +51,14 @@ export default {
 <style>
 #info-card-wrapper {
   border-radius: 5px;
-  padding: 2em;
-  padding-bottom: 3em;
+  padding: 1em;
   position: relative;
 }
 #data {
   text-align: center;
 }
 #icon {
-  font-size: 2em;
+  font-size: 1.5em;
   position: absolute;
   right: 0.5em;
   top: 0.5em;
