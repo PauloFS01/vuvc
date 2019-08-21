@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>Overview</h1>
     <div class="div-arrangement">
       <!-- begin div cards -->
       <div class="cards">
@@ -226,8 +225,6 @@ export default {
 // settings
 .home {
   @include clear-size;
-  @include body-default;
-  //display:grid;
   overflow: hidden;
 }
 

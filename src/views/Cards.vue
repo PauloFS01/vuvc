@@ -26,11 +26,17 @@
         <price-card />
       </div>
 
-      <div></div>
+      <div>
+        <price-card cardColor="#96CEB5" text="PROFESSIONAL" subText="$14/month" />
+      </div>
 
-      <div></div>
+      <div>
+        <price-card cardColor="#FFCD5E" text="PREMIUM" subText="$14/month" />
+      </div>
 
-      <div></div>
+      <div>
+        <price-card cardColor="#FF6E69" text="DEVELOPER" subText="$14/month" />
+      </div>
     </div>
     <!-- Price-Cards end -->
 
@@ -77,10 +83,14 @@ export default {
   }
 }
 
-// divs displayed
+// divs display
 #info-cards {
   position: relative;
   @include add-title(attr(data-desc-tip));
+  div {
+    height: 65%;
+    align-self: center;
+  }
 }
 
 #price-cards {
