@@ -58,9 +58,11 @@ export default {
 }
 // page configs
 #price-wrapper {
-  height: 100%;
+  max-width: 20.5em;
+  max-height: 20.5em;
   position: relative;
   font-family: Segoe UI, sans-serif;
+  overflow: hidden;
 }
 p {
   margin: 0;

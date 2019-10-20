@@ -41,14 +41,30 @@
     <!-- Price-Cards end -->
 
     <!-- Game-cards end -->
-    <div id="game-cards" data-desc-tip="Game Cards">
-      <div></div>
+    <div id="sale-cards" data-desc-tip="Sale Cards">
+      <div class="sale-div">
+        <hover-card @hoverCardclick="saleCardClick" />
+      </div>
+      <div class="sale-div">
+        <hover-card
+          @hoverCardclick="saleCardClick"
+          model="Standart"
+          classification="Regular"
+          value="$15"
+          primaryColor="#576574"
+        />
+      </div>
 
-      <div></div>
-
-      <div></div>
-
-      <div></div>
+      <div class="sale-div">
+        <hover-card
+          @hoverCardclick="saleCardClick"
+          model="Premium"
+          classification="Special"
+          value="$30"
+          secundaryColor="#ff9f43"
+          :content="fillContent"
+        />
+      </div>
     </div>
     <!-- Game-cards end -->
   </div>
@@ -57,10 +73,22 @@
 <script>
 import InfoCard from "@/components/cards/InfoCard";
 import PriceCard from "@/components/cards/PriceCard";
+import HoverCard from "@/components/cards/HoverCard";
 export default {
   components: {
     InfoCard,
-    PriceCard
+    PriceCard,
+    HoverCard
+  },
+  data() {
+    return {
+      fillContent: ["5 Domain", "100 TB Email", "Free domain"]
+    };
+  },
+  methods: {
+    saleCardClick() {
+      alert(`Sale card clicked`);
+    }
   }
 };
 </script>
@@ -72,38 +100,44 @@ export default {
 #cards-wrapper {
   @include body-default;
   div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
-    grid-auto-rows: minmax(100px, auto);
-    gap: 0.5em;
-    div {
-      border: solid red 1px;
-      box-sizing: border-box;
-    }
+    border: solid red 1px;
   }
 }
 
 // divs display
 #info-cards {
   position: relative;
+  @include responsive-line;
   @include add-title(attr(data-desc-tip));
-  div {
-    height: 65%;
-    align-self: center;
-  }
 }
 
 #price-cards {
   position: relative;
+  @include responsive-line;
   @include add-title(attr(data-desc-tip));
 }
 
-#game-cards {
+#sale-cards {
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2em;
+  justify-items: center;
   @include add-title(attr(data-desc-tip));
+}
+.sale-div {
+  max-width: 20em;
 }
 
 // desktop display
 @media only screen and (min-width: 900px) {
+  #sale-cards {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(500px, auto); /*altura das linhas*/
+    gap: 1em;
+  }
+  .sale-div {
+    min-width: 15em;
+  }
 }
 </style>

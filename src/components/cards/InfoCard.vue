@@ -53,12 +53,14 @@ export default {
   border-radius: 5px;
   padding: 1em;
   position: relative;
+  display: grid;
+  align-items: center;
 }
 #data {
   text-align: center;
 }
 #icon {
-  font-size: 1.5em;
+  font-size: 1.2em;
   position: absolute;
   right: 0.5em;
   top: 0.5em;
